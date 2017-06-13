@@ -10,6 +10,13 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+# 将./src/main/cpp目录（不包含子目录）下所有源文件保存在变量 SRC 中
+aux_source_directory(./src/main/cpp SRC)
+# 将./src/main/cpp/bzip2目录（不包含子目录）下所有源文件保存在变量 SRC 中
+aux_source_directory(./src/main/cpp/bzip2 SRC_OTHER)
+# 将 SRC_OTHER 添加到 SRC 中
+list(APPEND SRC ${SRC_OTHER})
+
 add_library( # Sets the name of the library.
              bsdiff
 
@@ -17,21 +24,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.h
-             src/main/cpp/native-lib.c
-             src/main/cpp/bsdiff.c
-             src/main/cpp/bspatch.c
-             src/main/cpp/bzip2/bzip2.c
-             src/main/cpp/bzip2/bzlib.c
-             src/main/cpp/bzip2/bzlib_private.h
-             src/main/cpp/bzip2/crctable.c
-             src/main/cpp/bzip2/randtable.c
-             src/main/cpp/bzip2/blocksort.c
-             src/main/cpp/bzip2/bzip2recover.c
-             src/main/cpp/bzip2/bzlib.h
-             src/main/cpp/bzip2/compress.c
-             src/main/cpp/bzip2/decompress.c
-             src/main/cpp/bzip2/huffman.c
+             ${SRC}
               )
 
 # Searches for a specified prebuilt library and stores the path as a
