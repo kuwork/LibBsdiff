@@ -16,7 +16,8 @@ gen/
 .gradle/
 build/
 /*/build/
-
+.externalNativeBuild/
+:wq
 # Local configuration file (sdk path, etc)
 local.properties
 
