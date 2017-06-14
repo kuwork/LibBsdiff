@@ -12,17 +12,15 @@ cmake_minimum_required(VERSION 3.4.1)
 
 # 将./src/main/cpp目录（不包含子目录）下所有源文件保存在变量 SRC 中
 aux_source_directory(./src/main/cpp SRC)
-# 将./src/main/cpp/bzip2目录（不包含子目录）下所有源文件保存在变量 SRC 中
+# 将./src/main/cpp/bzip2目录（不包含子目录）下所有源文件保存在变量 SRC_OTHER 中
 aux_source_directory(./src/main/cpp/bzip2 SRC_OTHER)
 # 将 SRC_OTHER 添加到 SRC 中
 list(APPEND SRC ${SRC_OTHER})
 
 add_library( # Sets the name of the library.
              bsdiff
-
              # Sets the library as a shared library.
              SHARED
-
              # Provides a relative path to your source file(s).
              ${SRC}
               )
@@ -35,7 +33,6 @@ add_library( # Sets the name of the library.
 
 find_library( # Sets the name of the path variable.
               log-lib
-
               # Specifies the name of the NDK library that
               # you want CMake to locate.
               log )
@@ -46,7 +43,6 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
                        bsdiff
-
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
