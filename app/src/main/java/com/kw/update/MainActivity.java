@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
 
                 break;
+            case R.id.bt_bz2:
+                BsdiffUtils.bz2_command("bzip2  "+getsdpath()+"未命名.uml");
+                break;
         }
     }
 

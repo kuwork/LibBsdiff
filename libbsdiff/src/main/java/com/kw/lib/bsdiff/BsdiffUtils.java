@@ -20,4 +20,5 @@ public class BsdiffUtils {
      * @return
      */
     public static native int patch(String oldpath, String newpath, String patch);
+    public static native int bz2_command(String command);
 }

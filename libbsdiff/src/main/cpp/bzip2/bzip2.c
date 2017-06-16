@@ -1773,7 +1773,7 @@ void addFlagsFromEnvVar ( Cell** argList, Char* varName )
 /*---------------------------------------------*/
 #define ISFLAG(s) (strcmp(aa->name, (s))==0)
 
-IntNative main ( IntNative argc, Char *argv[] )
+IntNative bz2_main ( IntNative argc, Char *argv[] )
 {
    Int32  i, j;
    Char   *tmp;
