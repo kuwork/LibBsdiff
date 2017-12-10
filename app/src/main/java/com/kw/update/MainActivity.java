@@ -13,13 +13,13 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     //旧版本
-    String old = getsdpath() + "com.ajb.anjubao.intelligent_1.3.2_38.apk";
+    String old = getsdpath() + "oldfile.txt";
     //新版本
-    String newp = getsdpath() + "com.ajb.anjubao.intelligent_1.3.3_39.apk";
+    String newp = getsdpath() + "newfile.txt";
     //差分包
-    String patch = getsdpath() + "com.ajb.anjubao.intelligent_38_39.patch";
+    String patch = getsdpath() + "diff.patch";
     //旧版apk和差分包合并生成的新版apk
-    String tmp = getsdpath() + "new.apk";
+    String tmp = getsdpath() + "new.txt";
 
 
     @Override

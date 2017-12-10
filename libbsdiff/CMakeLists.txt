@@ -9,13 +9,22 @@ cmake_minimum_required(VERSION 3.4.1)
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
+include_directories(
+./src/main/cpp/bzip2
+#./src/main/cpp/gnu
+#./src/main/cpp/tar
+)
 
 # 将./src/main/cpp目录（不包含子目录）下所有源文件保存在变量 SRC 中
 aux_source_directory(./src/main/cpp SRC)
 # 将./src/main/cpp/bzip2目录（不包含子目录）下所有源文件保存在变量 SRC_OTHER 中
-aux_source_directory(./src/main/cpp/bzip2 SRC_OTHER)
+aux_source_directory(./src/main/cpp/bzip2 SRC_BZIP2)
+#aux_source_directory(./src/main/cpp/gnu SRC_GNU)
+#aux_source_directory(./src/main/cpp/tar SRC_TAR)
 # 将 SRC_OTHER 添加到 SRC 中
-list(APPEND SRC ${SRC_OTHER})
+list(APPEND SRC ${SRC_BZIP2})
+#list(APPEND SRC ${SRC_GNU})
+#list(APPEND SRC ${SRC_TAR})
 
 add_library( # Sets the name of the library.
              bsdiff
