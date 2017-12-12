@@ -10,6 +10,10 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+include_directories(
+./src/main/cpp
+./src/main/cpp/bzip2
+)
 # 将./src/main/cpp目录（不包含子目录）下所有源文件保存在变量 SRC 中
 aux_source_directory(./src/main/cpp SRC)
 # 将./src/main/cpp/bzip2目录（不包含子目录）下所有源文件保存在变量 SRC_OTHER 中

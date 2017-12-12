@@ -72,7 +72,7 @@ typedef
 
 #ifndef BZ_NO_STDIO
 /* Need a definitition for FILE */
-#include <stdio.h>
+#include "mystdio.h"
 #endif
 
 #ifdef _WIN32

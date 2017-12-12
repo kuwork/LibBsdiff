@@ -13,13 +13,13 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
 
     //旧版本
-    String old = getsdpath() + "com.ajb.anjubao.intelligent_1.3.2_38.apk";
+    String old = getsdpath() + "oldfile.txt";
     //新版本
-    String newp = getsdpath() + "com.ajb.anjubao.intelligent_1.3.3_39.apk";
+    String newp = getsdpath() + "newfile.txt";
     //差分包
-    String patch = getsdpath() + "com.ajb.anjubao.intelligent_38_39.patch";
+    String patch = getsdpath() + "file.patch";
     //旧版apk和差分包合并生成的新版apk
-    String tmp = getsdpath() + "new.apk";
+    String tmp = getsdpath() + "new.txt";
 
 
     @Override
@@ -60,8 +60,21 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
 
                 break;
-            case R.id.bt_bz2:
-                BsdiffUtils.bz2_command("bzip2  "+getsdpath()+"未命名.uml");
+            case R.id.bt_bzip2:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        BsdiffUtils.executeBZ2Command("bzip2 -k -f /sdcard/new.txt");
+                    }
+                }).start();
+                break;
+            case R.id.bt_bunzip2:
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        BsdiffUtils.executeBZ2Command("bunzip2 -f -k /sdcard/new.txt.bz2");
+                    }
+                }).start();
                 break;
         }
     }

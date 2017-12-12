@@ -23,11 +23,19 @@
         android:text="合并" />
 
     <Button
-        android:id="@+id/bt_bz2"
+        android:id="@+id/bt_bzip2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:onClick="click"
         android:text="压缩" />
+
+    <Button
+        android:id="@+id/bt_bunzip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="click"
+        android:text="解压" />
 
 </LinearLayout>

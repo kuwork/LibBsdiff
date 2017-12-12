@@ -26,5 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile project(path: ':libbsdiff')
+//    compile project(path: ':libbsdiff')
+    debugCompile project(path: ':libbsdiff', configuration: 'debug')
+    releaseCompile project(path: ':libbsdiff', configuration: 'release')
 }

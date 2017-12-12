@@ -30,7 +30,6 @@ __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bspatch/bspatch.c,v 1.1 2005/08/06 01:59:
 
 #include "bzip2/bzlib.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 #include <err.h>
 #include <unistd.h>

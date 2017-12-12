@@ -33,12 +33,9 @@ __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bsdiff/bsdiff.c,v 1.1 2005/08/06 01:59:05
 #include "bzip2/bzlib.h"
 #include <err.h>
 #include <fcntl.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <jni.h>
-#include <android/log.h>
 
 #define MIN(x, y) (((x)<(y)) ? (x) : (y))
 
@@ -251,9 +248,9 @@ int bsdiff_main(int argc, char *argv[]) {
     if (((I = malloc((oldsize + 1) * sizeof(off_t))) == NULL) ||
         ((V = malloc((oldsize + 1) * sizeof(off_t))) == NULL))
         err(1, NULL);
-    __android_log_print(ANDROID_LOG_INFO, "bsdiff", "%s", "qsufsort开始");
+    LOGI(TAG, "%s", "qsufsort开始");
     qsufsort(I, V, old, oldsize);
-    __android_log_print(ANDROID_LOG_INFO, "bsdiff", "%s", "qsufsort结束");
+    LOGI(TAG, "%s", "qsufsort结束");
     free(V);
 
     /* Allocate newsize+1 bytes instead of newsize bytes to ensure
@@ -302,7 +299,7 @@ int bsdiff_main(int argc, char *argv[]) {
     lastpos = 0;
     lastoffset = 0;
 
-    __android_log_print(ANDROID_LOG_INFO, "bsdiff", "%s", "开始处理");
+    LOGI(TAG, "%s", "开始处理");
     int percent = 0;
     while (scan < newsize) {
         oldscore = 0;
@@ -402,10 +399,10 @@ int bsdiff_main(int argc, char *argv[]) {
         int cur = scan * 100 / newsize;
         if (percent != cur) {
             percent = cur;
-            __android_log_print(ANDROID_LOG_INFO, "bsdiff", "处理中...%d%%",percent);
+            LOGI(TAG, "处理中...%d%%",percent);
         }
     };
-    __android_log_print(ANDROID_LOG_INFO, "bsdiff", "%s", "BZ2处理中");
+    LOGI(TAG, "%s", "BZ2处理中");
     BZ2_bzWriteClose(&bz2err, pfbz2, 0, NULL, NULL);
     if (bz2err != BZ_OK)
         errx(1, "BZ2_bzWriteClose, bz2err = %d", bz2err);

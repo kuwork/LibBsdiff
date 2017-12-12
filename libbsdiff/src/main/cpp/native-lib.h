@@ -1,8 +1,10 @@
 #include <jni.h>
 #include <malloc.h>
 #include <string.h>
-#include <android/log.h>
+#include <stdio.h>
 #include "bzip2/bzlib_private.h"
+#include "logutils.h"
+
 
 int bsdiff_main(int argc, char *argv[]);
 
@@ -19,4 +21,6 @@ Java_com_kw_lib_bsdiff_BsdiffUtils_patch(JNIEnv *env, jclass type, jstring oldpa
                                          jstring newpath_, jstring patch_);
 
 JNIEXPORT jint JNICALL
-Java_com_kw_lib_bsdiff_BsdiffUtils_bz2_1command(JNIEnv *env, jclass type, jstring command_);
+Java_com_kw_lib_bsdiff_BsdiffUtils_executeBZ2Command(JNIEnv *env, jclass type, jstring command_);
+
+

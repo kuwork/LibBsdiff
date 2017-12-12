@@ -25,7 +25,6 @@
 #include <stdlib.h>
 
 #ifndef BZ_NO_STDIO
-#include <stdio.h>
 #include <ctype.h>
 #include <string.h>
 #endif
